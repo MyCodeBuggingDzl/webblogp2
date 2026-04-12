@@ -23,8 +23,15 @@ public class LogAnalyzer
         hourCounts = new int[HOURS_PER_DAY];
         // Create the reader to obtain the data.
         reader = new LogfileReader();
+        
+        //Question 5
+        
     }
-
+    public LogAnalyzer(String filename)
+    {
+        hourCounts = new int [HOURS_PER_DAY];
+        reader = new LogfileReader(filename);
+    }
     /**
      * Analyze the hourly access data from the log file.
      */
@@ -62,5 +69,15 @@ public class LogAnalyzer
     public void printData()
     {
         reader.printData();
+    }
+    
+    
+    public int numberOfAcess(){
+        //question 6-7
+        int total = 0;
+        for(int hours = 0; total < hourCounts.length; hours++){
+            total+= hourCounts[hours];
+        }
+        return total;
     }
 }

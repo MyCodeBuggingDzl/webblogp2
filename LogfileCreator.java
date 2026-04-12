@@ -20,6 +20,7 @@ public class LogfileCreator
     public LogfileCreator()
     {
         rand = new Random();
+        
     }
     
     /**
