@@ -80,4 +80,38 @@ public class LogAnalyzer
         }
         return total;
     }
+    
+    public int busiestHour(){
+        int busiest = 0;
+        for(int hours = 1; hours < hourCounts.length; hours++){
+            if(hourCounts[hours] > hourCounts[busiest]){
+                busiest = hours;
+            }
+        }
+        return busiest;
+    }
+    
+    public int quietestHour(){
+        int quietest = 0;
+        for(int hours = 1; hours < hourCounts.length; hours++){
+            if(hourCounts[hours] < hourCounts[quietest]){
+                quietest = hours;
+            }
+        }
+        return quietest;
+    }
+    
+    public int twoBusiestHours(){
+        int busiest = 0;
+        int consicutiveHour = hourCounts[0] + hourCounts[1];
+        for(int hour = 1; hour < hourCounts.length - 1; hour++){
+           int total = hourCounts[hour] + hourCounts[hour + 1];
+           if(total > consicutiveHour){
+               consicutiveHour = total;
+               busiest = hour;
+           }
+           
+        }
+        return busiest;
+    }
 }
